@@ -19,10 +19,11 @@
   }
   else {  ## apparently FAME is installed
 
-    chliPath <- file.path(fameDir, "chli.dll")
-
     if(.Machine$sizeof.pointer == 8)
       fameDir <- file.path(fameDir, "64")
+
+    chliPath <- file.path(fameDir, "chli.dll")
+
     if(!file.exists(chliPath))
       stop(paste("chli.dll not found in", fameDir))
     dyn.load(chliPath, local = FALSE)
