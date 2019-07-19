@@ -21,7 +21,7 @@
 
     chliPath <- file.path(fameDir, "chli.dll")
 
-    if(Sys.getenv("R_ARCH") == "/x64")
+    if(.Machine$sizeof.pointer == 8)
       fameDir <- file.path(fameDir, "64")
     if(!file.exists(chliPath))
       stop(paste("chli.dll not found in", fameDir))
